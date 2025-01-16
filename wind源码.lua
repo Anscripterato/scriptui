@@ -8,7 +8,7 @@ local WindUI = {
 }
 local RunService = game:GetService("RunService")
 
-local Themes = require("./Themes/init")
+local Themes = require("./init")
 local Creator = require("./Creator")
 local New = Creator.New
 local Tween = Creator.Tween
@@ -41,7 +41,7 @@ WindUI.ScreenGui = New("ScreenGui", {
 ProtectGui(WindUI.ScreenGui)
 
 
-local Notify = require("./Components/Notification")
+local Notify = require("./Notification")
 local Holder = Notify.Init(WindUI.ScreenGui.Notifications)
 
 function WindUI:Notify(Config)
@@ -93,7 +93,7 @@ end
 
 
 function WindUI:CreateWindow(Config)
-    local CreateWindow = require("./Components/Window")
+    local CreateWindow = require("./Window")
     
     if WindUI.Window then
         warn("您不能创建多个窗口")
@@ -113,7 +113,7 @@ function WindUI:CreateWindow(Config)
     
     function KeySystem()
         CanLoadWindow = false
-        local KeyDialogInit = require("./Components/Dialog").Init(WindUI.ScreenGui.KeySystem)
+        local KeyDialogInit = require("./Dialog").Init(WindUI.ScreenGui.KeySystem)
         local KeyDialog = KeyDialogInit.Create(true)
         
         
@@ -372,7 +372,7 @@ function WindUI:CreateWindow(Config)
         end
         if Config.KeySystem.SaveKey and Config.Folder then
             local WindowTitle = New("TextLabel", {
-                Text = "你的卡密将会本地保存在/storage/emulated/0/Android/data/com.roblox.client/files/gloop/external/" .. Config.Folder .. "/" .. Filename .. ".key",
+                Text = "你的卡密将会本地保存在/" .. Config.Folder .. "/" .. Filename .. ".key",
                 TextSize = 13,
                 FontFace = Font.new(Creator.Font, Enum.FontWeight.SemiBold),
                 TextXAlignment = "Left",
