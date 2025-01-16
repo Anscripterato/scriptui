@@ -8,7 +8,7 @@ local WindUI = {
 }
 local RunService = game:GetService("RunService")
 
-local Themes = require("./Components/init")
+local Themes = require("./main/init")
 local Creator = require("./Creator")
 local New = Creator.New
 local Tween = Creator.Tween
